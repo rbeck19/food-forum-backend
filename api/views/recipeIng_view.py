@@ -3,45 +3,45 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status, generics
 from rest_framework.response import Response
 
-from ..models.recipeIng import RecipeIng
-from ..serializers import RecipeIngSerializer
+from ..models.recipeIng import RecipeIngredient
+from ..serializers import RecipeIngredientSerializer
 
-class RecipeIngsView(generics.ListCreateAPIView):
+class RecipeIngredientsView(generics.ListCreateAPIView):
     """
     View RecipeIngs
     """
-    serializer_class = RecipeIngSerializer
+    serializer_class = RecipeIngredientSerializer
     #INDEX
     def get(self, request):
-        recipeings = RecipeIng.objects.all()
-        serializer = RecipeIngSerializer(recipeings, many=True)
+        recipes = RecipeIngredient.objects.all()
+        serializer = RecipeIngredientSerializer(recipes, many=True)
         return Response({'recipe_ingredients': serializer.data})
     #CREATE
     def post(self, request):
-        serializer = RecipeIngSerializer(data=request.data)
+        serializer = RecipeIngredientSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # /recipeings/id
-class RecipeIngDetailView(generics.ListCreateAPIView):
-    serializer_class = RecipeIngSerializer
+class RecipeIngredientDetailView(generics.ListCreateAPIView):
+    serializer_class = RecipeIngredientSerializer
     
     def get(self, request, pk):
-        recipeing = get_object_or_404(RecipeIng, pk=pk)
-        serializer = RecipeIngSerializer(recipeing)
+        recipes = get_object_or_404(RecipeIngredient, pk=pk)
+        serializer = RecipeIngredientSerializer(recipes)
         return Response(serializer.data)
     #UPDATE
     def patch(self, request, pk):
-        recipeing = get_object_or_404(RecipeIng, pk=pk)
-        serializer = RecipeIngSerializer(recipeing, data=request.data)
+        recipes = get_object_or_404(RecipeIngredient, pk=pk)
+        serializer = RecipeIngredientSerializer(recipes, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     #DELETE
     def delete(self, request, pk):
-        recipeing = get_object_or_404(RecipeIng, pk=pk)
-        recipeing.delete()
+        recipes = get_object_or_404(RecipeIngredient, pk=pk)
+        recipes.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

@@ -28,6 +28,7 @@ class CommentsView(generics.ListCreateAPIView):
 class CommentDetailView(generics.ListCreateAPIView):
     serializer_class = CommentSerializer
     
+    # SHOW
     def get(self, request, pk):
         comment = get_object_or_404(Comment, pk=pk)
         serializer = CommentSerializer(comment)
