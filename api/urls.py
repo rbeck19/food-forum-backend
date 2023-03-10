@@ -3,9 +3,13 @@ from .views.comment_view import CommentsView, CommentDetailView
 from .views.ingredient_view import IngredientsView, IngredientDetailView
 from .views.recipe_view import RecipesView, RecipeDetailView
 from .views.recipeIng_view import RecipeIngredientsView, RecipeIngredientDetailView
+from .views.user_view import SignUp, SignIn, SignOut
 
 # you must call your url pathing var this!
 urlpatterns = [
+    path('sign-up/', SignUp.as_view(), name='sign-up'),
+    path('sign-in/', SignIn.as_view(), name='sign-in'),
+    path('sign-out/', SignOut.as_view(), name='sign-out'),
     path('ingredients/', IngredientsView.as_view()),
     path('ingredients/<int:pk>/', IngredientDetailView.as_view()),
     path('recipes/', RecipesView.as_view()),
