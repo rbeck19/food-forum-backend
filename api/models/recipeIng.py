@@ -1,7 +1,6 @@
 from django.db import models
 from .ingredient import Ingredient
-from .ingredient import Ingredient
-from .recipeIng import RecipeIngredient
+
 
 # Create your models here.
 class RecipeIngredient(models.Model):
