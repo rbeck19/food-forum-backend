@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from .recipe import Recipe
 
 # Create your models here.
 class Comment(models.Model):
@@ -8,6 +9,10 @@ class Comment(models.Model):
         on_delete=models.CASCADE
     )
     note = models.CharField(max_length=100)
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE
+    )
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
