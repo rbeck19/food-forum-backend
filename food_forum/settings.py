@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'food_forum.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gharmon327/Recipe_forum',
+        'NAME': 'gharmon327/Project-4',
         'USER': 'gharmon327',
         'PASSWORD': os.getenv('DATABASE_PASSWORD'),
         'HOST': 'db.bit.io',
