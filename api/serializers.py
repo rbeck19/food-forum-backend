@@ -13,6 +13,11 @@ class RecipeSerializer(serializers.ModelSerializer):
         model = Recipe
         fields = '__all__'
 
+class RecipeReadSerializer(serializers.ModelSerializer):
+    owner = serializers.StringRelatedField()
+    class Meta:
+        model = Recipe
+        fields = '__all__'
 
 # class IngredientSerializer(serializers.ModelSerializer):
 #     class Meta:
@@ -31,6 +36,12 @@ class RecipeSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         #can put extra validations here
+        model = Comment
+        fields = '__all__'
+
+class CommentReadSerializer(serializers.ModelSerializer):
+    owner = serializers.StringRelatedField()
+    class Meta:
         model = Comment
         fields = '__all__'
 

@@ -4,7 +4,7 @@ from rest_framework import status, generics
 from rest_framework.response import Response
 
 from ..models.comment import Comment
-from ..serializers import CommentSerializer
+from ..serializers import CommentSerializer, CommentReadSerializer
 
 class CommentsView(generics.ListCreateAPIView):
     """
@@ -14,7 +14,7 @@ class CommentsView(generics.ListCreateAPIView):
     #INDEX
     def get(self, request):
         comments = Comment.objects.all()
-        serializer = CommentSerializer(comments, many=True)
+        serializer = CommentReadSerializer(comments, many=True)
         return Response({'comments': serializer.data})
     #CREATE
     def post(self, request):
@@ -31,7 +31,7 @@ class CommentDetailView(generics.ListCreateAPIView):
     # SHOW
     def get(self, request, pk):
         comment = get_object_or_404(Comment, pk=pk)
-        serializer = CommentSerializer(comment)
+        serializer = CommentReadSerializer(comment)
         return Response(serializer.data)
     #UPDATE
     def patch(self, request, pk):
