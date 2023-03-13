@@ -4,7 +4,7 @@ from rest_framework import status, generics
 from rest_framework.response import Response
 
 from ..models.recipe import Recipe
-from ..serializers import RecipeSerializer
+from ..serializers import RecipeSerializer, RecipeReadSerializer
 
 class RecipesView(generics.ListCreateAPIView):
     """
