@@ -10,7 +10,7 @@ class Recipe(models.Model):
     description = models.CharField(max_length=500)
     ingredients = ArrayField(models.CharField(max_length=500, blank=False))
     steps = ArrayField(models.CharField(max_length=500, blank=False))
-    
+    image = models.CharField(null=True, blank=True, max_length=500)
     owner = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE
