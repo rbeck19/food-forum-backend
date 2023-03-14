@@ -1,19 +1,13 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.contrib.postgres.fields import ArrayField
-# from .ingredient import Ingredient
-# from .recipeIng import RecipeIngredient
+
 
 
 # Create your models here.
 class Recipe(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
-    # ingredients = models.ManyToManyField(
-    #     Ingredient,
-    #     through = RecipeIngredient,
-    #     through_fields = ('recipe','ingredients')
-    # )
     ingredients = ArrayField(models.CharField(max_length=500, blank=False))
     steps = ArrayField(models.CharField(max_length=500, blank=False))
     
