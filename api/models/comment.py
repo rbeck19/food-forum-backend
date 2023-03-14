@@ -8,7 +8,7 @@ class Comment(models.Model):
         get_user_model(),
         on_delete=models.CASCADE
     )
-    note = models.CharField(max_length=500)
+    note = models.CharField(max_length=2000)
     recipe = models.ForeignKey(
         Recipe,
         on_delete=models.CASCADE

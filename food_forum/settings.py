@@ -93,16 +93,7 @@ DATABASES = {
     ),
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'gharmon327/final_project',
-#         'USER': 'gharmon327',
-#         'PASSWORD': os.getenv('DATABASE_PASSWORD'),
-#         'HOST': 'db.bit.io',
-#         'PORT': '5432',
-#     }
-# }
+
 
 REST_FRAMEWORK = { 
     'DEFAULT_AUTHENTICATION_CLASSES': [

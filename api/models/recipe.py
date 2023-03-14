@@ -7,10 +7,10 @@ from django.contrib.postgres.fields import ArrayField
 # Create your models here.
 class Recipe(models.Model):
     title = models.CharField(max_length=100)
-    description = models.CharField(max_length=500)
-    ingredients = ArrayField(models.CharField(max_length=500, blank=False))
-    steps = ArrayField(models.CharField(max_length=500, blank=False))
-    image = models.CharField(null=True, blank=True, max_length=500)
+    description = models.CharField(max_length=2000)
+    ingredients = ArrayField(models.CharField(max_length=1000, blank=False))
+    steps = ArrayField(models.CharField(max_length=2000, blank=False))
+    image = models.CharField(null=True, blank=True, max_length=1000)
     owner = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE
