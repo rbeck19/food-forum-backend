@@ -1,9 +1,7 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
-# from .models.ingredient import Ingredient
 from .models.recipe import Recipe
-# from .models.recipeIng import RecipeIngredient
 from .models.comment import Comment
 from .models.user import User
 
@@ -18,19 +16,6 @@ class RecipeReadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipe
         fields = '__all__'
-
-# class IngredientSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         #can put extra validations here
-#         model = Ingredient
-#         fields = '__all__'
-
-
-# class RecipeIngredientSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         #can put extra validations here
-#         model = RecipeIngredient
-#         fields = '__all__'
 
 
 class CommentSerializer(serializers.ModelSerializer):
